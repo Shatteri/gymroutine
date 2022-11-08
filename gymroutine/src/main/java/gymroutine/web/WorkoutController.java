@@ -38,21 +38,28 @@ public class WorkoutController {
 	}
 
 	@GetMapping("/addworkout/{id}")
-	public String addWorkout(@PathVariable("id") Long id, Model model, HttpServletRequest request) {
+	public String addWorkout(@PathVariable("id") Long number, Model model, HttpServletRequest request) {
 		model.addAttribute("workouts", workoutRepo.findAll());
 		model.addAttribute("workout", new Workout());
-		model.addAttribute("week", weekRepo.findById(id).get());
+		model.addAttribute("week", weekRepo.findById(number).get());
 
 		url = request.getRequestURI().toString();
-		System.out.println(url);
 		return "addworkout";
 	}
 
-	@PostMapping(value = "/saveworkout")
+	@PostMapping("/saveworkout")
 	public String saveWorkout(@ModelAttribute Workout newWorkout, Model model) {
 		workoutRepo.save(newWorkout);
 		List<String> urlList = Arrays.asList(url.split("/"));
 		String redirectId = urlList.get(2);
-		return "redirect:/addworkout/" + redirectId;
+		return "redirect:/listworkouts/" + redirectId;
+	}
+
+	@GetMapping("/logworkout/{id}")
+	public String logWorkout(@PathVariable("id") long workout_id, Model model, HttpServletRequest request) {
+		model.addAttribute("workout", workoutRepo.findById(workout_id));
+		model.addAttribute("week", weekRepo.findAll());
+		url = request.getRequestURI().toString();
+		return "logworkout";
 	}
 }

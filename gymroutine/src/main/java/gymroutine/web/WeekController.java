@@ -23,7 +23,6 @@ public class WeekController {
 	@Autowired
 	private WorkoutRepository workoutRepo;
 	
-	// List all queries
 	@GetMapping(value={"/", "/weeklist"})
 	public String getWeek(Model model) {
 		model.addAttribute("weeks", weekRepo.findAll());
@@ -31,21 +30,18 @@ public class WeekController {
 		return "weeklist";
 	}
 
-	// Add new Query
 	@GetMapping("/addweek")
 	public String addWeek(Model model) {
 		model.addAttribute("week", new Week());
 		return "addweek";
 	}
 
-	// Save new Query
 	@PostMapping(value = "/save")
 	public String saveWeek(@ModelAttribute Week newWeek, Model model) {
 		weekRepo.save(newWeek);
 		return "redirect:weeklist";
 	}
 
-	// Add questions for query based on it's id (NOT FINISHED)
 	@GetMapping("/listworkouts/{id}")
 	public String listWeekWorkouts(@PathVariable("id") Long week_id, Model model) {
 		model.addAttribute("week", weekRepo.findById(week_id).get());

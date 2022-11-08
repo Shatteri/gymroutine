@@ -47,21 +47,20 @@
 <body>
 	<div class="content">
 		<div class="header">
-			<h1>Add workout</h1>
+			<h1>Log workout</h1>
 		</div>
 		<div class="addWorkoutForm">
-		    <form th:object="${workout}" th:action="@{../saveworkout}" action="#" method="post">
+		    <form th:object="${workout}" th:action="@{../logworkout}" action="#" method="post">
 		        <div class="form-row">
-					<table class="table table-striped">
-						<tr th:each="workout : ${week.getWorkouts()}">
-							<td><h3 th:text="${workout.muscleGroup}"/></td>
-							<td><h3 th:text="${workout.exercise}"/></td>
-							<td><h3 th:text="${workout.sets}"/></td>
-							<td><h3 th:text="${workout.reps}"/></td>
-							<td><h3 th:text="${workout.weight}"/></td>
-							<td><a th:href="@{/logworkout/{id}(id=${workout.workout_id})}">Log workout</a></td>
+					<!-- <table class="table table-striped">
+						<tr th:each="workout : ${workouts}">
+							<td th:text="${workout.muscleGroup}">Group</td>
+							<td th:text="${workout.exercise}">Exercise</td>
+							<td th:text="${workout.sets}">Sets</td>
+							<td th:text="${workout.reps}">Reps</td>
+							<td th:text="${workout.weight}">Weight</td>
 						</tr>
-					</table>
+					</table> -->
 					<!-- <div class="col">
 
 						<select id="weekList" th:field="*{week}" class="form-control">
@@ -71,10 +70,10 @@
 					</div> -->
 					<br>
 					<label for="group">Group</label>
-					<input type="text" id="group" th:field="*{muscleGroup}">
+					<input type="text" id="group" th:field="*{muscleGroup}" readonly>
 
 					<label for="exercise">Exercise</label>
-					<input type="text" id="exercise" th:field="*{exercise}">
+					<input type="text" id="exercise" th:field="*{exercise}" readonly>
 					
 					<label for="sets">Sets</label>
 					<input type="text" id="sets" th:field="*{sets}">
@@ -85,7 +84,7 @@
 					<label for="weight">Weight</label>
 					<input type="text" id="weight" th:field="*{weight}">
 				</div>
-		        <input class="saveWorkout" type="submit" value="Save Workout"></input>
+		        <input class="logWorkout" type="submit" value="Log Workout"></input>
 		    </form>
 		</div>
 		<br>

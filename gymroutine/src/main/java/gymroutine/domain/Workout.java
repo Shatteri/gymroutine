@@ -13,8 +13,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Workout {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long workout_id;
-    private String group;
+    private long workout_id;
+    private String muscleGroup;
     private String exercise;
     private Integer sets;
     private Integer reps;
@@ -22,14 +22,14 @@ public class Workout {
 
     @ManyToOne
     @JsonIgnore
-@JoinColumn(name = "categoryid")
+@JoinColumn(name = "number")
     private Week week;
 
     public Workout() {}
 
-    public Workout(String group, String exercise, Integer sets, Integer reps, double weight, Week week) {
+    public Workout(String muscleGroup, String exercise, Integer sets, Integer reps, double weight, Week week) {
         super();
-        this.group = group;
+        this.muscleGroup = muscleGroup;
         this.exercise = exercise;
         this.sets = sets;
         this.reps = reps;
@@ -37,20 +37,20 @@ public class Workout {
         this.week = week;
     }
 
-    public Long getWorkout_id() {
+    public long getWorkout_id() {
         return workout_id;
     }
 
-    public void setWorkout_id(Long workout_id) {
+    public void setWorkout_id(long workout_id) {
         this.workout_id = workout_id;
     }
 
-    public String getGroup() {
-        return group;
+    public String getMuscleGroup() {
+        return muscleGroup;
     }
 
-    public void setGroup(String group) {
-        this.group = group;
+    public void setMuscleGroup(String muscleGroup) {
+        this.muscleGroup = muscleGroup;
     }
 
     public String getExercise() {
