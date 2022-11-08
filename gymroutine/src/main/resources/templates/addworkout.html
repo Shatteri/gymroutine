@@ -54,22 +54,20 @@
 		        <div class="form-row">
 					<table class="table table-striped">
 						<tr th:each="workout : ${week.getWorkouts()}">
+							<td><h3 th:text="${workout.week.number}"></h3></td>
 							<td><h3 th:text="${workout.muscleGroup}"/></td>
 							<td><h3 th:text="${workout.exercise}"/></td>
 							<td><h3 th:text="${workout.sets}"/></td>
 							<td><h3 th:text="${workout.reps}"/></td>
 							<td><h3 th:text="${workout.weight}"/></td>
-							<td><a th:href="@{/logworkout/{id}(id=${workout.workout_id})}">Log workout</a></td>
+							<td><a th:href="@{/addworkout/{id}(id=${workout.workout_id})}">Add workout</a></td>
 						</tr>
 					</table>
 					<!-- <div class="col">
-
 						<select id="weekList" th:field="*{week}" class="form-control">
-				            <option th:each="week:${week}" th:value="${week.number}" th:text="${week.number}"></option>
+				            <option th:each="week : ${week}" th:value="${week.number}" th:text="${week.number}"></option>
 				        </select>
-
 					</div> -->
-					<br>
 					<label for="group">Group</label>
 					<input type="text" id="group" th:field="*{muscleGroup}">
 
@@ -84,8 +82,10 @@
 		
 					<label for="weight">Weight</label>
 					<input type="text" id="weight" th:field="*{weight}">
+					<br>
+					<input class="saveWorkout" type="submit" value="Save Workout"></input>
 				</div>
-		        <input class="saveWorkout" type="submit" value="Save Workout"></input>
+		        <!-- <input class="saveWorkout" type="submit" value="Save Workout"></input> -->
 		    </form>
 		</div>
 		<br>
