@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Weeklist</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+	<link type="text/css" rel="stylesheet" href="/css/addweek.css">
+</head>
+<body>
+	<div class="content">
+		<div class="header">
+			<h1>Add week</h1>
+		</div>	
+	    <div class="addWeekForm">
+		    <form th:object="${week}" th:action="@{../save}" action="#" method="post">
+		        <div class="form-row">
+				</div>
+				<input class="saveWeek" type="submit" value="Save Week"></input>
+		    </form>
+	    </div>
+	    <br>
+	    <a href="/weeklist">Back to Weeks</a>
+	</div>
+</body>
+</html>

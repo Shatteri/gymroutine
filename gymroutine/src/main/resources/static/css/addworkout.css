@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+.content{
+	margin: 30px;
+}
+
+.form-control{
+	width:30%;
+}
+
+.saveWorkout{
+	border: none;
+	padding: 5px;
+	margin-top:20px;
+	border-radius:5px;
+	background-color:#715C8C; 
+	color: white;
+}
+
+.saveWorkout:hover{ 
+	color: black;
+}
+
+#weekList {
+	visibility: hidden;
+}

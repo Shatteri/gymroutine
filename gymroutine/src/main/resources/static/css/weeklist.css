@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+.content{
+	margin: 30px;
+}
+
+.weekButton{
+	border: none; 
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 5px;
+	border-radius:5px;
+	background-color:#715C8C; 
+	color: white;
+}
+
+.weekButton:hover{
+	text-decoration: none;
+	background-color:#715C8C; 
+	color: black;
+}
+
+.addWorkout{
+	border: none;
+	padding: 5px;
+	margin-right:20px;
+	border-radius:5px;
+	background-color:#715C8C; 
+	color: white;
+}
+.addWorkout:hover{
+	text-decoration: none;
+	background-color:#715C8C; 
+	color: black;
+}
+
+.listWorkouts{
+	border: none;
+	padding: 5px;
+	margin-right:20px;
+	border-radius:5px;
+	background-color:#715C8C; 
+	color: white;
+}
+
+.listWorkouts:hover{
+	text-decoration: none;
+	background-color:#715C8C; 
+	color: black;
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Workout routines</title>
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+	<link rel="stylesheet" href="/css/weeklist.css" type="text/css">
+</head>
+<body>
+	<a href="/weeklist">Back to Week List</a>
+	<table class="table table-striped">
+		<tr th:each="workout : ${week.getWorkouts()}">
+			<td><h3 th:text="${workout.group}"/></td>
+			<td><h3 th:text="${workout.exercise}"/></td>
+			<td><h3 th:text="${workout.sets}"/></td>
+			<td><h3 th:text="${workout.reps}"/></td>
+			<td><h3 th:text="${workout.weight}"/></td>
+		</tr>
+	</table>
+</body>
+</html>
