@@ -23,8 +23,8 @@
 			<tr th:each="week : ${weeks}">
 				<td th:text="${week.number}">Week</td>
 				<td style="width:300px;">
-					<a class="listWorkouts" th:href="@{/listworkouts/{id}(id=${week.number})}">Open Workouts</a>
-					<a class="addWorkout" th:href="@{/addworkout/{id}(id=${week.number})}">Add Workout</a>
+					<a class="listWorkouts" th:href="@{/listworkouts/{id}(id=${week.number})}">Open routine</a>
+					<a class="addWorkout" th:href="@{/addworkout/{id}(id=${week.number})}">Add workout</a>
 				</td>
 		
 			</tr>

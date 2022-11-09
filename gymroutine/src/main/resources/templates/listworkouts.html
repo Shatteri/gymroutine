@@ -23,7 +23,8 @@
 			<td><h3 th:text="${workout.sets}"/></td>
 			<td><h3 th:text="${workout.reps}"/></td>
 			<td><h3 th:text="${workout.weight}"/></td>
-			<td><a th:href="@{/logworkout/{id}(id=${workout.workout_id})}">Log</a></td>
+			<!-- <td><a th:href="@{/logworkout/{id}(id=${workout.workout_id})}">Log</a></td> -->
+			<td><a th:href="@{/edit/{id}(id=${workout.workout_id})}">Edit</a></td>
 		</tr>
 	</table>
 </body>

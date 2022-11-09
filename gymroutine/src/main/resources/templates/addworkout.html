@@ -49,9 +49,14 @@
 		<div class="header">
 			<h1>Add workout</h1>
 		</div>
+
 		<div class="addWorkoutForm">
 		    <form th:object="${workout}" th:action="@{../saveworkout}" action="#" method="post">
-
+				<div class="col">
+					<select id="weekList" th:field="*{week}" class="form-control">
+						<option th:each="week:${week}" th:value="${week.number}"></option>
+					</select>
+				</div>
 				<div class="form-row">
 					<table class="table table-striped">
 						<tr th:each="workout : ${workouts}">
@@ -75,6 +80,9 @@
 			
 						<label for="reps">Reps</label>
 						<input type="text" id="reps" th:field="*{reps}">
+
+						<label for="weight">Weight</label>
+						<input type="text" id="weight" th:field="*{weight}">
 					</div>
 				</div>
 		        <input class="saveWorkout" type="submit" value="Save Workout"></input>

@@ -31,10 +31,10 @@ public class WorkoutController {
 	@Autowired
 	private WeekRepository weekRepo;
 
-	@GetMapping("/workoutlist")
+	@GetMapping("/listworkouts")
 	public String listWorkouts(Model model) {
 		model.addAttribute("workouts", workoutRepo.findAll());
-		return "workoutlist";
+		return "listworkouts";
 	}
 
 	@GetMapping("/addworkout/{id}")
@@ -60,6 +60,14 @@ public class WorkoutController {
 		model.addAttribute("workout", workoutRepo.findById(workout_id));
 		model.addAttribute("week", weekRepo.findAll());
 		url = request.getRequestURI().toString();
+		System.out.println(url);
 		return "logworkout";
+	}
+
+	@GetMapping(value="/edit/{id}")
+	public String editBook(@PathVariable("id") long workout_id, Model model) {
+		model.addAttribute("workout", workoutRepo.findById(workout_id));
+		model.addAttribute("week", weekRepo.findAll());
+		return "addworkout";
 	}
 }
