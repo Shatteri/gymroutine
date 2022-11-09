@@ -51,6 +51,13 @@
 		</div>
 
 		<form th:object="${workout}" th:action="@{../logworkout}" action="#" method="post">
+
+			<div class="col">
+				<select id="workoutList" th:field="*{workout}" class="form-control">
+					<option th:each="workout:${workout}" th:value="${workout.workout_id}"></option>
+				</select>
+			</div>
+
 			<div class="form-row">
 				<table class="table table-striped">
 					<tr th:each="workout : ${workouts}">
@@ -79,32 +86,8 @@
 					<input type="text" id="weight" th:field="*{weight}">
 				</div>
 			</div>
-			<input class="logWorkout" type="submit" value="Save Workout"></input>
+			<input class="logWorkout" type="submit" value="Log Workout"></input>
 		</form>
-		<!-- AAAAAAAAAAAAAAAAA -->
-		<!-- <div class="addWorkoutForm">
-		    <form th:object="${workout}" th:action="@{../logworkout}" action="#" method="post">
-		        <div class="form-row">
-
-					<br>
-					<label for="group">Group</label>
-					<input type="text" id="group" th:field="*{muscleGroup}" readonly>
-
-					<label for="exercise">Exercise</label>
-					<input type="text" id="exercise" th:field="*{exercise}" readonly>
-					
-					<label for="sets">Sets</label>
-					<input type="text" id="sets" th:field="*{sets}">
-		
-					<label for="reps">Reps</label>
-					<input type="text" id="reps" th:field="*{reps}">
-		
-					<label for="weight">Weight</label>
-					<input type="text" id="weight" th:field="*{weight}">
-				</div>
-		        <input class="logWorkout" type="submit" value="Log Workout"></input>
-		    </form>
-		</div> -->
 		<br>
 		<a href="/weeklist">Back to Weeks</a>
 	</div>

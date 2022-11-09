@@ -42,7 +42,6 @@ public class WorkoutController {
 		model.addAttribute("workouts", workoutRepo.findAll());
 		model.addAttribute("workout", new Workout());
 		model.addAttribute("week", weekRepo.findById(number).get());
-
 		url = request.getRequestURI().toString();
 		return "addworkout";
 	}
@@ -60,14 +59,6 @@ public class WorkoutController {
 		model.addAttribute("workout", workoutRepo.findById(workout_id));
 		model.addAttribute("week", weekRepo.findAll());
 		url = request.getRequestURI().toString();
-		System.out.println(url);
-		return "logworkout";
-	}
-
-	@GetMapping(value="/edit/{id}")
-	public String editBook(@PathVariable("id") long workout_id, Model model) {
-		model.addAttribute("workout", workoutRepo.findById(workout_id));
-		model.addAttribute("week", weekRepo.findAll());
 		return "addworkout";
 	}
 }
