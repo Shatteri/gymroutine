@@ -61,4 +61,13 @@ public class WorkoutController {
 		url = request.getRequestURI().toString();
 		return "addworkout";
 	}
+
+	@PostMapping("/editworkout")
+	public String editWorkout(@ModelAttribute Workout newWorkout, Model model) {
+		workoutRepo.save(newWorkout);
+		List<String> urlList = Arrays.asList(url.split("/"));
+		String redirectId = urlList.get(2);
+		Long paska = Long.parseLong(redirectId);
+		return "redirect:/weeklist";
+	}
 }

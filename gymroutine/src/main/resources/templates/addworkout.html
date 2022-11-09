@@ -52,6 +52,7 @@
 
 		<div class="addWorkoutForm">
 		    <form th:object="${workout}" th:action="@{../saveworkout}" action="#" method="post">
+				<input type="hidden" th:field="*{workout_id}" class="form-control"/>
 				<div class="col">
 					<select id="weekList" th:field="*{week}" class="form-control">
 						<option th:each="week:${week}" th:value="${week.number}"></option>

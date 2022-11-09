@@ -49,9 +49,9 @@
 		<div class="header">
 			<h1>Log workout</h1>
 		</div>
-
-		<form th:object="${workout}" th:action="@{../logworkout}" action="#" method="post">
-
+		<div class="logWorkoutForm">
+		<form th:object="${workout}" th:action="@{../editworkout}" action="#" method="post">
+			<input type="hidden" th:field="*{workout_id}" class="form-control"/>
 			<div class="col">
 				<select id="workoutList" th:field="*{workout}" class="form-control">
 					<option th:each="workout:${workout}" th:value="${workout.workout_id}"></option>
@@ -86,8 +86,9 @@
 					<input type="text" id="weight" th:field="*{weight}">
 				</div>
 			</div>
-			<input class="logWorkout" type="submit" value="Log Workout"></input>
+			<input class="editWorkout" type="submit" value="Log Workout"></input>
 		</form>
+		</div>
 		<br>
 		<a href="/weeklist">Back to Weeks</a>
 	</div>
