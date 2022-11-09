@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>Querylist</title>
+	<title>Week list</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
 	<link rel="stylesheet" href="/css/weeklist.css" type="text/css">
@@ -11,13 +11,11 @@
 		<div class="header">
 			<h1>Weeks</h1>
 		</div>
-		
 		<div class="createWeek">
-			<a href="/addweek">
-				<button class="weekButton">Create new Week</button>
-			</a>
-		</div>
-		 
+		    <form th:object="${week}" th:action="@{../save}" action="#" method="post">
+				<input class="weekButton" type="submit" value="Add new week"></input>
+		    </form>
+	    </div>
 		<table class="table table-striped">
 			<tr>
 				<th>Week</th>

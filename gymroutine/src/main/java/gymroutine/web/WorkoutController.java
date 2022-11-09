@@ -52,7 +52,7 @@ public class WorkoutController {
 		workoutRepo.save(newWorkout);
 		List<String> urlList = Arrays.asList(url.split("/"));
 		String redirectId = urlList.get(2);
-		return "redirect:/listworkouts/" + redirectId;
+		return "redirect:/addworkout/" + redirectId;
 	}
 
 	@GetMapping("/logworkout/{id}")

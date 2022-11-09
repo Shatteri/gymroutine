@@ -9,13 +9,21 @@
 <body>
 	<a href="/weeklist">Back to Week List</a>
 	<table class="table table-striped">
+		<tr>
+			<th><h2>Muscle group</h2></th>
+			<th><h2>Exercise</h2></th>
+			<th><h2>Sets</h2></th>
+			<th><h2>Reps</h2></th>
+			<th><h2>Weight</h2>
+		</tr>
+
 		<tr th:each="workout : ${week.getWorkouts()}">
 			<td><h3 th:text="${workout.muscleGroup}"/></td>
 			<td><h3 th:text="${workout.exercise}"/></td>
 			<td><h3 th:text="${workout.sets}"/></td>
 			<td><h3 th:text="${workout.reps}"/></td>
 			<td><h3 th:text="${workout.weight}"/></td>
-			<td><a th:href="@{/logworkout/{id}(id=${workout.workout_id})}">Edit</a></td>
+			<td><a th:href="@{/logworkout/{id}(id=${workout.workout_id})}">Log</a></td>
 		</tr>
 	</table>
 </body>
