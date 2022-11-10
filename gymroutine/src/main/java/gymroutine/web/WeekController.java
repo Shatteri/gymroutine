@@ -22,6 +22,11 @@ public class WeekController {
 
 	@Autowired
 	private WorkoutRepository workoutRepo;
+
+	@GetMapping(value="/login")
+    public String login() {	
+        return "login";
+    }	
 	
 	@GetMapping(value={"/", "/weeklist"})
 	public String getWeek(Model model) {

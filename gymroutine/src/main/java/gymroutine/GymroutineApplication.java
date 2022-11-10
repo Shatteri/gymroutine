@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Bean;
 
 import gymroutine.domain.Category;
 import gymroutine.domain.CategoryRepository;
+import gymroutine.domain.User;
+import gymroutine.domain.UserRepository;
 import gymroutine.domain.Week;
 import gymroutine.domain.WeekRepository;
 import gymroutine.domain.Workout;
@@ -20,8 +22,11 @@ public class GymroutineApplication {
 	}
 
 	@Bean
-	public CommandLineRunner routine(WeekRepository weekRepository, WorkoutRepository workoutRepository, CategoryRepository categoryRepository) {
+	public CommandLineRunner routine(WeekRepository weekRepository, WorkoutRepository workoutRepository, CategoryRepository categoryRepository, UserRepository userRepository) {
 		return (args) -> {
+			userRepository.save(new User("user", "$2y$10$iyEr.tfpe9q2NrY0B9ayAeVsd4ljb5VHP8y/ioV/rFXrz2fv624yG", "USER"));
+			userRepository.save(new User("admin", "$2y$10$6P79CpftG0MpMstXlAgieuIZA3fRCD89iXHc8L6zTAcTLPyxjDAse", "ADMIN"));
+		
 			Week week1 = new Week();
 			weekRepository.save(week1);
 
