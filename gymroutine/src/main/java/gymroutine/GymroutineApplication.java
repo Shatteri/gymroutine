@@ -25,9 +25,6 @@ public class GymroutineApplication {
 			Week week1 = new Week();
 			weekRepository.save(week1);
 
-			// Week week2 = new Week();
-			// weekRepository.save(week2);
-
 			Category category1 = new Category("Chest & Biceps");
 			categoryRepository.save(category1);
 

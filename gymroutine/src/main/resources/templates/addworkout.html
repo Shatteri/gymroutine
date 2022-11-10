@@ -71,29 +71,24 @@
 							</tr>
 
 						<td>
-						<!-- <label for="muscleGroup"><h3>Group</h3></label> -->
 						<select id="select" th:field="*{category}" class="form-control">
 							<option th:each="category:${categories}" th:value="${category.category_id}" th:text="${category.muscleGroup}"></option>
 						</select>
 						</td>
 
 						<td>
-						<!-- <label for="exercise"><h4>Exercise</h4></label> -->
 						<input type="text" id="exercise" th:field="*{exercise}">
 						</td>
 
 						<td>
-						<!-- <label for="sets"><h4>Sets</h4></label> -->
 						<input type="text" id="sets" th:field="*{sets}">
 						</td>
 
 						<td>
-						<!-- <label for="reps"><h4>Reps</h4></label> -->
 						<input type="text" id="reps" th:field="*{reps}">
 						</td>
 
 						<td>
-						<!-- <label for="weight"><h4>Weight</h4></label> -->
 						<input type="text" id="weight" th:field="*{weight}" readonly>
 						</td>
 					</table>
