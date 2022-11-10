@@ -53,19 +53,19 @@
 		<form th:object="${workout}" th:action="@{../editworkout}" action="#" method="post">
 			<input type="hidden" th:field="*{workout_id}" class="form-control"/>
 			<div class="col">
-				<select id="workoutList" th:field="*{workout}" class="form-control">
-					<option th:each="workout:${workout}" th:value="${workout.workout_id}"></option>
-				</select>
+					<select id="weekList" th:field="*{week}" class="form-control">
+						<option th:each="week:${weeks}" th:value="${week.number}"></option>
+					</select>
 			</div>
 
 			<div class="form-row">
 				<table class="table table-striped">
-					<tr th:each="workout : ${workouts}">
-						<td><h3 th:text="${workout.muscleGroup}"/></td>
-						<td><h3 th:text="${workout.exercise}"/></td>
-						<td><h3 th:text="${workout.sets}"/></td>
-						<td><h3 th:text="${workout.reps}"/></td>
-						<td><h3 th:text="${workout.weight}"/></td>
+					<tr th:each="workout : ${workout}">
+						<td><h3 th:text="${workout.muscleGroup}"/></h3></td>
+						<td><h3 th:text="${workout.exercise}"/></h3></td>
+						<td><h3 th:text="${workout.sets}"/></h3></td>
+						<td><h3 th:text="${workout.reps}"/></h3></td>
+						<td><h3 th:text="${workout.weight}"/></h3></td>
 					</tr>
 				</table>
 				<br>

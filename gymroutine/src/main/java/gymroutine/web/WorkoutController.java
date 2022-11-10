@@ -55,11 +55,11 @@ public class WorkoutController {
 	}
 
 	@GetMapping("/logworkout/{id}")
-	public String logWorkout(@PathVariable("id") long workout_id, Model model, HttpServletRequest request) {
-		model.addAttribute("workout", workoutRepo.findById(workout_id));
-		model.addAttribute("week", weekRepo.findAll());
+	public String logWorkout(@PathVariable("id") Long workout_id, Model model, HttpServletRequest request) {
+		model.addAttribute("workout", workoutRepo.findById(workout_id).get());
+		model.addAttribute("weeks", weekRepo.findById(workoutRepo.findById(workout_id).get().getWeek().getNumber()).get());
 		url = request.getRequestURI().toString();
-		return "addworkout";
+		return "logworkout";
 	}
 
 	@PostMapping("/editworkout")
@@ -67,7 +67,13 @@ public class WorkoutController {
 		workoutRepo.save(newWorkout);
 		List<String> urlList = Arrays.asList(url.split("/"));
 		String redirectId = urlList.get(2);
-		Long paska = Long.parseLong(redirectId);
-		return "redirect:/weeklist";
+		Long id = Long.parseLong(redirectId);
+		return "redirect:/logworkout/" + id;
+	}
+
+	@GetMapping("/delete/{id}/{id2}")
+	public String deleteBook(@PathVariable("id") Long workout_id, @PathVariable("id2") int weekid, Model model, HttpServletRequest request) {
+		workoutRepo.deleteById(workout_id);
+		return "redirect:/listworkouts/" + weekid;
 	}
 }

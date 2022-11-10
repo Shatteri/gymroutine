@@ -24,7 +24,7 @@
 			<td><h3 th:text="${workout.reps}"/></td>
 			<td><h3 th:text="${workout.weight}"/></td>
 			<td><a class="logWorkout" th:href="@{/logworkout/{id}(id=${workout.workout_id})}">Log</a></td>
-			<!-- <td><a th:href="@{/edit/{id}(id=${workout.workout_id})}">Edit</a></td> -->
+			<td><a class="logWorkout" th:href="@{/delete/{id}/{id2}(id=${workout.workout_id},id2=${week.number})}">Delete</a></td>
 		</tr>
 	</table>
 </body>
