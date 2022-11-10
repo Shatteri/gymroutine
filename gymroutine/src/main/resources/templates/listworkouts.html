@@ -18,7 +18,7 @@
 		</tr>
 
 		<tr th:each="workout : ${week.getWorkouts()}">
-			<td><h3 th:text="${workout.muscleGroup}"/></td>
+			<td><h3 th:text="${workout.category.muscleGroup}"/></td>
 			<td><h3 th:text="${workout.exercise}"/></td>
 			<td><h3 th:text="${workout.sets}"/></td>
 			<td><h3 th:text="${workout.reps}"/></td>

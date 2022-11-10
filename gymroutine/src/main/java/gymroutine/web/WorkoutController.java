@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-
+import gymroutine.domain.CategoryRepository;
 import gymroutine.domain.WeekRepository;
 import gymroutine.domain.Workout;
 import gymroutine.domain.WorkoutRepository;
@@ -31,14 +31,19 @@ public class WorkoutController {
 	@Autowired
 	private WeekRepository weekRepo;
 
+	@Autowired
+	private CategoryRepository categoryRepo;
+
 	@GetMapping("/listworkouts")
 	public String listWorkouts(Model model) {
+		model.addAttribute("categories", categoryRepo.findAll());
 		model.addAttribute("workouts", workoutRepo.findAll());
 		return "listworkouts";
 	}
 
 	@GetMapping("/addworkout/{id}")
 	public String addWorkout(@PathVariable("id") Long number, Model model, HttpServletRequest request) {
+		model.addAttribute("categories", categoryRepo.findAll());
 		model.addAttribute("workouts", workoutRepo.findAll());
 		model.addAttribute("workout", new Workout());
 		model.addAttribute("week", weekRepo.findById(number).get());
@@ -58,6 +63,7 @@ public class WorkoutController {
 	public String logWorkout(@PathVariable("id") Long workout_id, Model model, HttpServletRequest request) {
 		model.addAttribute("workout", workoutRepo.findById(workout_id).get());
 		model.addAttribute("weeks", weekRepo.findById(workoutRepo.findById(workout_id).get().getWeek().getNumber()).get());
+		model.addAttribute("category", categoryRepo.findAll());
 		url = request.getRequestURI().toString();
 		return "logworkout";
 	}

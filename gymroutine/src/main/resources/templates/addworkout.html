@@ -9,7 +9,7 @@
 		body {
 			background-color: #a7a7a7;
 		}
-		#week, #exercise, #sets, #reps, #weight, #group {
+		#week, #exercise, #sets, #reps, #weight {
 		  padding: 12px 20px;
 		  margin: 8px 0;
 		  display: inline-block;
@@ -32,16 +32,6 @@
 		input[type=submit]:hover {
 		  background-color: #1c1766;
 		}
-		textarea {
-			width: 100%;
-			height: 150px;
-			padding: 12px 20px;
-			box-sizing: border-box;
-			border: 2px solid #ccc;
-			border-radius: 4px;
-			background-color: #f8f8f8;
-			resize: none;
-		}
 		</style>
 </head>
 <body>
@@ -61,7 +51,7 @@
 				<div class="form-row">
 					<table class="table table-striped">
 						<tr th:each="workout : ${week.getWorkouts()}">
-							<td><h3 th:text="${workout.muscleGroup}"/></td>
+							<td><h3 th:text="${workout.category.muscleGroup}"/></td>
 							<td><h3 th:text="${workout.exercise}"/></td>
 							<td><h3 th:text="${workout.sets}"/></td>
 							<td><h3 th:text="${workout.reps}"/></td>
@@ -70,20 +60,43 @@
 					</table>
 					<br>
 					<div class="col">
-						<label for="group">Group</label>			
-						<input type="text" id="group" th:field="*{muscleGroup}">
-	
-						<label for="exercise">Exercise</label>
-						<input type="text" id="exercise" th:field="*{exercise}">
-						
-						<label for="sets">Sets</label>
-						<input type="text" id="sets" th:field="*{sets}">
-			
-						<label for="reps">Reps</label>
-						<input type="text" id="reps" th:field="*{reps}">
+						<table class="table table-striped">
 
-						<label for="weight">Weight</label>
+							<tr>
+								<th><h2>Muscle group</h2></th>
+								<th><h2>Exercise</h2></th>
+								<th><h2>Sets</h2></th>
+								<th><h2>Reps</h2></th>
+								<th><h2>Weight</h2>
+							</tr>
+
+						<td>
+						<!-- <label for="muscleGroup"><h3>Group</h3></label> -->
+						<select id="select" th:field="*{category}" class="form-control">
+							<option th:each="category:${categories}" th:value="${category.category_id}" th:text="${category.muscleGroup}"></option>
+						</select>
+						</td>
+
+						<td>
+						<!-- <label for="exercise"><h4>Exercise</h4></label> -->
+						<input type="text" id="exercise" th:field="*{exercise}">
+						</td>
+
+						<td>
+						<!-- <label for="sets"><h4>Sets</h4></label> -->
+						<input type="text" id="sets" th:field="*{sets}">
+						</td>
+
+						<td>
+						<!-- <label for="reps"><h4>Reps</h4></label> -->
+						<input type="text" id="reps" th:field="*{reps}">
+						</td>
+
+						<td>
+						<!-- <label for="weight"><h4>Weight</h4></label> -->
 						<input type="text" id="weight" th:field="*{weight}" readonly>
+						</td>
+					</table>
 					</div>
 				</div>
 		        <input class="saveWorkout" type="submit" value="Save Workout"></input>

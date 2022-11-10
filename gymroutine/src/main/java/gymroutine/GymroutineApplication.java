@@ -5,6 +5,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import gymroutine.domain.Category;
+import gymroutine.domain.CategoryRepository;
 import gymroutine.domain.Week;
 import gymroutine.domain.WeekRepository;
 import gymroutine.domain.Workout;
@@ -18,18 +20,30 @@ public class GymroutineApplication {
 	}
 
 	@Bean
-	public CommandLineRunner routine(WeekRepository weekRepository, WorkoutRepository workoutRepository) {
+	public CommandLineRunner routine(WeekRepository weekRepository, WorkoutRepository workoutRepository, CategoryRepository categoryRepository) {
 		return (args) -> {
 			Week week1 = new Week();
 			weekRepository.save(week1);
 
-			Week week2 = new Week();
-			weekRepository.save(week2);
+			// Week week2 = new Week();
+			// weekRepository.save(week2);
 
-			Workout workout1 = new Workout("Legs", "Squats", 5, 10, 20.0, week1);
-			Workout workout2 = new Workout("Back", "Deadlift", 5, 20, 30.0, week1);
-			Workout workout3 = new Workout("Shoulders & Triceps", "Militarypress", 3, 20, 30.0, week2);
-			Workout workout4 = new Workout("Chest & Biceps", "Benchpress", 3, 20, 30.0, week2);
+			Category category1 = new Category("Chest & Biceps");
+			categoryRepository.save(category1);
+
+			Category category2 = new Category("Legs");
+			categoryRepository.save(category2);
+
+			Category category3 = new Category("Shoulders & Triceps");
+			categoryRepository.save(category3);
+
+			Category category4 = new Category("Back");
+			categoryRepository.save(category4);
+
+			Workout workout1 = new Workout(category1, "Benchpress", 5, 5, 80, week1);
+			Workout workout2 = new Workout(category2, "Squats", 5, 5, 100, week1);
+			Workout workout3 = new Workout(category3, "Militarypress", 5, 5, 50, week1);
+			Workout workout4 = new Workout(category4, "Deadlift", 5, 5, 150, week1);
 
 			workoutRepository.save(workout1);
 			workoutRepository.save(workout2);

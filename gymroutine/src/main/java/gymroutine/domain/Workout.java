@@ -14,7 +14,6 @@ public class Workout {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long workout_id;
-    private String muscleGroup;
     private String exercise;
     private Integer sets;
     private Integer reps;
@@ -25,11 +24,16 @@ public class Workout {
 @JoinColumn(name = "number")
     private Week week;
 
+    @ManyToOne
+    @JsonIgnore
+@JoinColumn(name = "category_id")
+    private Category category;
+
     public Workout() {}
 
-    public Workout(String muscleGroup, String exercise, Integer sets, Integer reps, double weight, Week week) {
+    public Workout(Category category, String exercise, Integer sets, Integer reps, double weight, Week week) {
         super();
-        this.muscleGroup = muscleGroup;
+        this.category = category;
         this.exercise = exercise;
         this.sets = sets;
         this.reps = reps;
@@ -45,12 +49,12 @@ public class Workout {
         this.workout_id = workout_id;
     }
 
-    public String getMuscleGroup() {
-        return muscleGroup;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setMuscleGroup(String muscleGroup) {
-        this.muscleGroup = muscleGroup;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public String getExercise() {
@@ -92,5 +96,4 @@ public class Workout {
     public void setWeek(Week week) {
         this.week = week;
     }
-
 }

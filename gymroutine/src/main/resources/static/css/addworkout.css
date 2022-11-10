@@ -5,7 +5,7 @@
 }
 
 .form-control{
-	width:30%;
+	width: 70%;
 }
 
 .saveWorkout{
@@ -13,11 +13,11 @@
 	padding: 5px;
 	margin-top:20px;
 	border-radius:5px;
-	background-color:#2616b1; 
+	background-color:#2616b1;
 	color: white;
 }
 
-.saveWorkout:hover{ 
+.saveWorkout:hover{
 	color: black;
 }
 
