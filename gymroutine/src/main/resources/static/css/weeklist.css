@@ -48,3 +48,17 @@
 	background-color:#715C8C; 
 	color: black;
 }
+
+.logWorkout{
+	border: none;
+	padding: 5px;
+	margin-right:20px;
+	border-radius:5px;
+	background-color:#715C8C; 
+	color: white;
+}
+.logWorkout:hover{
+	text-decoration: none;
+	background-color:#715C8C; 
+	color: black;
+}

@@ -60,7 +60,7 @@
 				</div>
 				<div class="form-row">
 					<table class="table table-striped">
-						<tr th:each="workout : ${workouts}">
+						<tr th:each="workout : ${week.getWorkouts()}">
 							<td><h3 th:text="${workout.muscleGroup}"/></td>
 							<td><h3 th:text="${workout.exercise}"/></td>
 							<td><h3 th:text="${workout.sets}"/></td>
@@ -70,7 +70,7 @@
 					</table>
 					<br>
 					<div class="col">
-						<label for="group">Group</label>
+						<label for="group">Group</label>			
 						<input type="text" id="group" th:field="*{muscleGroup}">
 	
 						<label for="exercise">Exercise</label>
