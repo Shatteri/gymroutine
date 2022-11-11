@@ -14,20 +14,22 @@
 			<th><h2>Exercise</h2></th>
 			<th><h2>Sets</h2></th>
 			<th><h2>Reps</h2></th>
-			<th><h2>Weight</h2>
+			<th><h2>Weight</h2></th>
+			<th><h2>Date</h2></th>
 		</tr>
 
 		<tr th:each="workout : ${week.getWorkouts()}">
 			<div th:switch="${workout.category.muscleGroup}">
-			<td><h3 th:text="${workout.category.muscleGroup}" th:case="'Chest & Biceps'" style=color:#223ca3/>
+			<td><h4 th:text="${workout.category.muscleGroup}" th:case="'Chest & Biceps'" style=color:#223ca3/>
 			<h3 th:text="${workout.category.muscleGroup}" th:case="'Legs'" style=color:#871c35/>
 			<h3 th:text="${workout.category.muscleGroup}" th:case="'Shoulders & Triceps'" style=color:#47871c/>
 			<h3 th:text="${workout.category.muscleGroup}" th:case="'Back'" style=color:#87531c/></td>
 		</div>
-			<td><h3 th:text="${workout.exercise}"/></td>
-			<td><h3 th:text="${workout.sets}"/></td>
-			<td><h3 th:text="${workout.reps}"/></td>
-			<td><h3 th:text="${workout.weight}"/></td>
+			<td><h4 th:text="${workout.exercise}"/></td>
+			<td><h4 th:text="${workout.sets}"/></td>
+			<td><h4 th:text="${workout.reps}"/></td>
+			<td><h4 th:text="${workout.weight}"/></td>
+			<td><h4 th:text="${workout.date}"/></td>
 			<td sec:authorize="hasAuthority('USER')"><a class="logWorkout" th:href="@{/logworkout/{id}(id=${workout.workout_id})}">Log</a></td>
 			<td sec:authorize="hasAuthority('ADMIN')"><a class="logWorkout" th:href="@{/delete/{id}/{id2}(id=${workout.workout_id},id2=${week.number})}">Delete</a></td>
 		</tr>

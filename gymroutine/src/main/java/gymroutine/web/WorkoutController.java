@@ -1,5 +1,8 @@
 package gymroutine.web;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.Arrays;
 import java.util.List;
 
@@ -70,6 +73,9 @@ public class WorkoutController {
 
 	@PostMapping("/editworkout")
 	public String editWorkout(@ModelAttribute Workout newWorkout, Model model) {
+		LocalDate localDate = LocalDate.now();
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG);
+        newWorkout.setDate(dateFormatter.format(localDate));
 		workoutRepo.save(newWorkout);
 		List<String> urlList = Arrays.asList(url.split("/"));
 		String redirectId = urlList.get(2);

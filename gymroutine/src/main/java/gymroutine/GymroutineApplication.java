@@ -42,15 +42,15 @@ public class GymroutineApplication {
 			Category category4 = new Category("Back");
 			categoryRepository.save(category4);
 
-			Workout workout1 = new Workout(category1, "Benchpress", 5, 5, 80, week1);
-			Workout workout2 = new Workout(category2, "Squats", 5, 5, 100, week1);
-			Workout workout3 = new Workout(category3, "Militarypress", 5, 5, 50, week1);
-			Workout workout4 = new Workout(category4, "Deadlift", 5, 5, 150, week1);
+			// Workout workout1 = new Workout(category1, "Benchpress", 5, 5, 80, week1);
+			// Workout workout2 = new Workout(category2, "Squats", 5, 5, 100, week1);
+			// Workout workout3 = new Workout(category3, "Militarypress", 5, 5, 50, week1);
+			// Workout workout4 = new Workout(category4, "Deadlift", 5, 5, 150, week1);
 
-			workoutRepository.save(workout1);
-			workoutRepository.save(workout2);
-			workoutRepository.save(workout3);
-			workoutRepository.save(workout4);
+			// workoutRepository.save(workout1);
+			// workoutRepository.save(workout2);
+			// workoutRepository.save(workout3);
+			// workoutRepository.save(workout4);
 		};
 	}
 }

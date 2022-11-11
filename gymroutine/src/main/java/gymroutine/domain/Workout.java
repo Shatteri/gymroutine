@@ -18,6 +18,7 @@ public class Workout {
     private Integer sets;
     private Integer reps;
     private Double weight;
+    private String date;
 
     @ManyToOne
     @JsonIgnore
@@ -31,7 +32,7 @@ public class Workout {
 
     public Workout() {}
 
-    public Workout(Category category, String exercise, Integer sets, Integer reps, double weight, Week week) {
+    public Workout(Category category, String exercise, Integer sets, Integer reps, double weight, Week week, String date) {
         super();
         this.category = category;
         this.exercise = exercise;
@@ -39,6 +40,7 @@ public class Workout {
         this.reps = reps;
         this.weight = weight;
         this.week = week;
+        this.date = date;
     }
 
     public long getWorkout_id() {
@@ -95,5 +97,13 @@ public class Workout {
 
     public void setWeek(Week week) {
         this.week = week;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }
