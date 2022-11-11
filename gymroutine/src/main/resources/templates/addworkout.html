@@ -50,6 +50,13 @@
 				</div>
 				<div class="form-row">
 					<table class="table table-striped">
+						<tr>
+							<th><h2>Muscle group</h2></th>
+							<th><h2>Exercise</h2></th>
+							<th><h2>Sets</h2></th>
+							<th><h2>Reps</h2></th>
+							<th><h2>Weight</h2>
+						</tr>
 						<tr th:each="workout : ${week.getWorkouts()}">
 							<td><h3 th:text="${workout.category.muscleGroup}"/></td>
 							<td><h3 th:text="${workout.exercise}"/></td>
@@ -67,7 +74,6 @@
 								<th><h2>Exercise</h2></th>
 								<th><h2>Sets</h2></th>
 								<th><h2>Reps</h2></th>
-								<th><h2>Weight</h2>
 							</tr>
 
 						<td>
@@ -89,7 +95,7 @@
 						</td>
 
 						<td>
-						<input type="text" id="weight" th:field="*{weight}" readonly>
+						<input type="hidden" id="weight" th:field="*{weight}" readonly>
 						</td>
 					</table>
 					</div>

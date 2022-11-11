@@ -9,13 +9,19 @@
 <body>
 	<div class="content">
 		<div class="header">
-			<h1>Weeks</h1>
+			<h1 style="text-align:center;" inline="text">Welcome [[${#httpServletRequest.remoteUser}]]!</h1>
 		</div>
 		<div sec:authorize="hasAuthority('ADMIN')" class="createWeek">
 		    <form th:object="${week}" th:action="@{../save}" action="#" method="post">
 				<input class="weekButton" type="submit" value="Add new week"></input>
 		    </form>
 	    </div>
+		<div class="col-md-4" style="padding:20px 0">
+			<form th:action="@{/logout}" method="post">
+				<input type="submit" value="Log out" class="btn btn-sm btn-danger"/>
+			</form>
+		</div>
+		<h2>Weeks</h2>
 		<table class="table table-striped">
 			<tr>
 				<th>Week</th>
